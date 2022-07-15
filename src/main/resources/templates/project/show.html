@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div align="center">
+  <a th:href="@{/projects}">Projects</a>
+  <a th:href="@{/projects/addForm}">Add Project</a>
+
+  <h2>Show Project details !</h2>
+  <span>Name :</span><span th:text="${project?.projectName}"></span><br/>
+  <span>Identifier :</span><span th:text="${project?.projectIdentifier}"></span><br/>
+  <span>Description(s) : </span> <span th:text="${project?.projectDescription}"></span>
+<!--  <span th:each="author: ${book.authors}">-->
+<!--    <span th:text="${author.firstName +' '+author.lastName}"></span>-->
+<!--  </span>-->
+  <br/>
+</div>
+
+</body>
+</html>

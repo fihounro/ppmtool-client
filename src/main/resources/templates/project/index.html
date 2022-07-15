@@ -1,0 +1,36 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+</head>
+<body>
+<h2 th:text="'My Projects'">My Projects</h2>
+
+<a th:href="@{/projects/addForm}">Add Project</a>
+
+<table id="projects" class="table table-striped">
+    <thead>
+    <tr>
+        <th style="width: 150px;">Id</th>
+        <th style="width: 200px;">Name</th>
+        <th style="width: 200px;">Identifier</th>
+        <th style="width: 100px;">Description</th>
+        <th style="width: 100px;">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="project : ${projects}">
+        <td th:text="${project?.id}">Id</td>
+        <td th:text="${project?.projectName}">Name</td>
+        <td th:text="${project?.projectIdentifier}">Identifier</td>
+        <td th:text="${project?.projectDescription}">Description</td>
+        <td>
+            <a th:href="@{/projects/{projectIdentifier}(projectIdentifier=${project.projectIdentifier})}">Show</a>
+            <a th:href="@{/projects/delete/{projectIdentifier}(projectIdentifier=${project.projectIdentifier})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
